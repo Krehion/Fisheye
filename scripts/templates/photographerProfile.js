@@ -4,7 +4,7 @@ class PhotographerProfile {
     }
 
     createPhotographerProfile() {
-        const $photographerInfo = document.createElement('section');
+        const $photographerInfo = document.createElement('div');
         $photographerInfo.classList.add('photographer-info-wrapper')
 
         const infoContent = `
