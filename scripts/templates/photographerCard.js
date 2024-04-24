@@ -7,7 +7,7 @@ function photographerTemplate(data) {
         // create all needed elements
         const article = document.createElement('article');
         const link = document.createElement('a');
-        link.setAttribute("href", "photographe.html?id=" + id);
+        link.setAttribute("href", "photographer.html?id=" + id);
         const imgContainer = document.createElement('div')
         imgContainer.setAttribute("class", "imgContainer")
         const img = document.createElement('img');
