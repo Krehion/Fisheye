@@ -9,7 +9,7 @@ function photographerTemplate(data) {
         const link = document.createElement('a');
         link.setAttribute("href", "photographer.html?id=" + id);
         const imgContainer = document.createElement('div')
-        imgContainer.setAttribute("class", "imgContainer")
+        imgContainer.setAttribute("class", "img-container")
         const img = document.createElement('img');
         img.setAttribute("src", picture)
         img.setAttribute("alt", "")
