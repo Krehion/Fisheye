@@ -13,6 +13,16 @@
     </header>
     <main id="main">
       <section id="photographer-profile"></section>
+      <div class="gallery-filter">
+        <form>
+          <label for="gallery-filter">Trier par</label>
+            <select name="gallery-filter" id="gallery-filter">
+              <option value="0">Popularité</option>
+              <option value="1">Date</option>
+              <option value="2">Titre</option>
+            </select>
+        </form>
+      </div>
       <section id="gallery"></section>
     </main>
     <div id="contact_modal">
@@ -33,9 +43,12 @@
     <!-- Scripts -->
     <!-- API -->
     <script src="/scripts/api/api.js"></script>
+    <!-- Factories -->
+    <script src="/scripts/factories/mediaFactory.js"></script>
     <!-- Models -->
     <script src="/scripts/models/photographer.js"></script>
     <script src="/scripts/models/mediaImage.js"></script>
+    <script src="/scripts/models/mediaVideo.js"></script>
     <!-- Templates -->
     <script src="/scripts/templates/PhotographerProfile.js"></script>
     <script src="/scripts/templates/PhotographerMedias.js"></script>

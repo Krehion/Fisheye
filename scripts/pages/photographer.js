@@ -10,7 +10,7 @@ class PhotographerPage {
         const photographersData = await this.photographerApi.getPhotographers();
         const myPhotographer = photographersData.filter(selectId);
         function selectId(photographer) {
-            return photographer.id === 243; // à filtrer sur searchparams au lieu de 243
+            return photographer.id === 243; // à remplacer par l'id réel avec searchParams
         }
 
         // Generate photographer profile
@@ -27,11 +27,9 @@ class PhotographerPage {
         const galleryData = await this.photographerApi.getGallery(243 /* à remplacer par l'id réel avec searchParams */);
         const myGallery = galleryData
 
-        console.log('Gallery Data:', galleryData); // Check if gallery data is fetched : remove this line once everything works
-
         // Generate gallery
         myGallery
-            .map(media => new Media(media)) 
+            .map(mediaData => MediaFactory.createMedia(mediaData))
             .forEach(media => {
                 const template = new PhotographerMedias(media);
                 this.$photographerGallery.appendChild(
