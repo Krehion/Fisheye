@@ -8,6 +8,7 @@ function photographerTemplate(data) {
         const article = document.createElement('article');
         const link = document.createElement('a');
         link.setAttribute("href", "photographer.html?id=" + id);
+        link.setAttribute("aria-label", name)
         const imgContainer = document.createElement('div')
         imgContainer.setAttribute("class", "img-container")
         const img = document.createElement('img');
@@ -15,6 +16,9 @@ function photographerTemplate(data) {
         img.setAttribute("alt", "")
         const h2 = document.createElement('h2');
         h2.textContent = name;
+        const txtContainer = document.createElement('div')
+        txtContainer.setAttribute("class", "txt-container")
+        txtContainer.setAttribute("tabindex", "0")
         const localization = document.createElement('p');
         localization.textContent = city + ', ' + country;
         localization.setAttribute("class", "localization")
@@ -30,9 +34,10 @@ function photographerTemplate(data) {
         link.appendChild(imgContainer);
         imgContainer.appendChild(img);
         link.appendChild(h2);
-        article.appendChild(localization);
-        article.appendChild(citation);
-        article.appendChild(rate);
+        article.appendChild(txtContainer);
+        txtContainer.appendChild(localization);
+        txtContainer.appendChild(citation);
+        txtContainer.appendChild(rate);
         return (article);
     }
     return { name, picture, getUserCardDOM }
