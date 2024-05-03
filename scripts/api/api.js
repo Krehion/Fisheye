@@ -42,7 +42,6 @@ class PhotographerApi extends Api {
         const media = await this.getMedia();
         // create a new array of media that match with the photographer's ID
         const gallery = media.filter(item => item.photographerId === photographerId); 
-    console.log('Gallery:', gallery); // Log gallery to check if filtering is correct
 
     return gallery;
     }
