@@ -17,7 +17,7 @@ class PhotographerMedias {
         } else if (this._media instanceof MediaVideo) {
             mediaContent = `
             <div class="gallery-media-container">
-                <video>
+                <video controls="">
                     <source src="assets/photographers/${this._media.photographerId}/${this._media.video}" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
