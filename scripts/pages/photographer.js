@@ -6,25 +6,26 @@ class PhotographerPage {
     }
 
     async init() {
+        let id = parseInt(new URL(document.location).searchParams.get("id"));
         // Fetch photographer data from the API
         const photographersData = await this.photographerApi.getPhotographers();
-        const myPhotographer = photographersData.filter(selectId);
+        const myPhotographers = photographersData.filter(selectId);
+        
+        
         function selectId(photographer) {
-            return photographer.id === 243; // à remplacer par l'id réel avec searchParams
+            return photographer.id === id;
         }
 
-        // Generate photographer profile
-        myPhotographer
-            .map(photographer => new Photographer(photographer)) // à retirer : .map et .forEach : ce n'est pas un tableau. Créer 1 seul modèle et 1 seul template à partir des données dans myPhotographer.  
-            .forEach(photographer => {
-                const template = new PhotographerProfile(photographer);
-                this.$photographerInfo.appendChild(
-                    template.createPhotographerProfile()
-                );
-            });
+        const myPhotographer = myPhotographers[0]; // récupérer seul élément du tableau généré
+
+        const photographerObj = new Photographer(myPhotographer); // renvoie un objet photographer
+        const template = new PhotographerProfile(photographerObj);
+        this.$photographerInfo.appendChild(
+            template.createPhotographerProfile()
+        );
 
         // Fetch gallery data
-        const galleryData = await this.photographerApi.getGallery(243 /* à remplacer par l'id réel avec searchParams */);
+        const galleryData = await this.photographerApi.getGallery(id);
         const myGallery = galleryData
 
         // Generate gallery
