@@ -1,0 +1,21 @@
+Question: 
+NVDA dans la navigation au clavier, quand je vais sur "nos photographes" lit "fisheye homepage titre niveau 1" sans lire "nos photographes" -> normal ? 
+-> oui. aria-label : fait lire au lecteur d'écran ce qu'on veut qu'il dise. Le changer ici.
+
+order : paramètre qui peut permettre de gérer l'ordre de lecture
+
+galerie : voir pour mettre un overlay au lieu des controls sur la vidéo, pour n'avoir les contrôles de lecture que dans la lightbox
+
+galerie : bulk resize les images pour créer des miniatures ->
+créer 1 dossier thumbnail pour les miniatures + 1 dossier regular pour les photos à afficher dans la lightbox
+
+lightbox : créer modale sur modèle du contact form
+générer template fixe où j'injecte les données avec les variables
+nav avec les flèches -> index+1 et index-1
+utiliser modulo pour revenir au début après la fin du tableau
+
+ESLint : à installer, pas uniquement l'extension
+
+---
+
+/!\ nouveau mentorat: préciser dispo en journée !!

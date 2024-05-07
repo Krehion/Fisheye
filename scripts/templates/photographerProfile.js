@@ -9,17 +9,17 @@ class PhotographerProfile {
 
         const infoContent = `
         <div id="photographer-info-txt">
-            <h1>${this._photographer.name}</h1>
-            <div>
+            <h1 tabindex="0">${this._photographer.name}</h1>
+            <div tabindex="0">
                 <p class="info-localization">${this._photographer.city}, ${this._photographer.country}</p>
                 <p class="info-tagline">${this._photographer.tagline}</p>
             </div>
         </div>
         <div id="photographer-info-contact">
-          <button class="contact_button" onclick="displayModal()">Contactez-moi</button>
+          <button class="contact_button" onclick="displayModal()" aria-label="Contact me">Contactez-moi</button>
         </div>
         <div id="photographer-info-img">
-            <div class="img-container">
+            <div class="img-container" tabindex="0">
                 <img src="${this._photographer.portrait}" alt="" />
             </div>
         </div>

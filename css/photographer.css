@@ -104,6 +104,10 @@
     height: 100%;
 }
 
+.gallery-media-container video {
+    transform: scale(1.1); /* get rid of black stripes on top & bottom of miniature */
+}
+
 .gallery-text-container {
     margin: 10px 0 0 0;
     display: flex;
