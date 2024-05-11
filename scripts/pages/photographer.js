@@ -2,6 +2,7 @@ class PhotographerPage {
     constructor() {
         this.$photographerInfo = document.querySelector("#photographer-profile");
         this.$photographerGallery = document.querySelector("#gallery");
+        this.$main = document.querySelector("#main");
         this.photographerApi = new PhotographerApi('../../data/photographers.json');
     }
 
@@ -16,10 +17,12 @@ class PhotographerPage {
             return photographer.id === id;
         }
 
-        const myPhotographer = myPhotographers[0]; // récupérer seul élément du tableau généré
+        const myPhotographer = myPhotographers[0]; // get the (only) element from generated array
 
-        const photographerObj = new Photographer(myPhotographer); // renvoie un objet photographer
+        const photographerObj = new Photographer(myPhotographer); // photographerObj is an object
         const template = new PhotographerProfile(photographerObj);
+
+        // Generate profile section
         this.$photographerInfo.appendChild(
             template.createPhotographerProfile()
         );
@@ -37,6 +40,14 @@ class PhotographerPage {
                     template.createMediaGallery()
                 );
             });
+
+        // Fetch likes and rate data
+        const templateLikes = new PhotographerLikesRate(photographerObj);
+
+        // Generate likes and rate box
+        this.$main.appendChild(
+            templateLikes.createPhotographerLikesRate()
+        );
     }
 }
 

@@ -16,7 +16,7 @@ class PhotographerProfile {
             </div>
         </div>
         <div id="photographer-info-contact">
-          <button class="contact_button" onclick="displayModal()" aria-label="Contact me">Contactez-moi</button>
+          <button class="contact_button" aria-label="Contact me">Contactez-moi</button>
         </div>
         <div id="photographer-info-img">
             <div class="img-container" tabindex="0">

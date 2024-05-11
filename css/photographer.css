@@ -1,6 +1,4 @@
-#contact_modal {
-    display: none;
-}
+/*##### PHOTOGRAPHER PROFILE SECTION #####*/
 
 .photographer-info-wrapper {
     background-color: #FAFAFA;
@@ -65,24 +63,44 @@
     transform: scale(1.1);
 }
 
+/*##### GALLERY FILTER #####*/
 
-.gallery-filter {
+.gallery-filter-container {
     margin: 30px 100px;
 }
 
-.gallery-filter form {
+.gallery-filter-container form {
     display: flex;
     flex-direction: row;
     font-size: 1.125rem;
+    align-items: center;
 }
 
-.gallery-filter form label {
+.gallery-filter-container form label {
     font-size: 1.125rem;
     font-weight: 700; 
     padding: 0 20px 0 0;
 }
 
+#gallery-filter {
+    background-color: #901C1C;
+    color: #ffffff;
+    border: none;
+    padding: 10px;
+    font-weight: 500; 
+    font-size: 1rem; 
+    border-radius: 0.3rem;
+}
 
+#gallery-filter option {
+    border-bottom: solid 1px #ffffff;
+}
+
+#gallery-filter option:hover {
+    background-color: rgb(46, 145, 71);
+}
+
+/*##### GALLERY #####*/
 
 #gallery {
     display: grid;
@@ -149,10 +167,51 @@
     background-color: #DB8876;
 }
 
+/*##### STICKY LIKES & RATE BOX #####*/
+
+.likes-rate-box {
+    position: sticky;
+    bottom: 0;
+    left: 100%;
+    margin-right: 50px;
+    width: 20rem;
+    background: #DB8876;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.likes-rate-box p {
+    margin: 0;
+    padding: 20px;
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+.total-likes-heart {
+    font-size: 1.6rem;
+}
+
+/*##### CONTACT FORM #####*/
+
+#contact_modal {
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: rgba(196, 196, 196, 0.40);
+}
+
 .modal {
     border-radius: 5px;
     background-color: #DB8876;
-    width: 50%;
+    width: 45%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -161,19 +220,30 @@
     margin: auto;
 }
 
-.modal header {
+.modal-header {
+    display: flex;
+    flex-direction: row;
     justify-content: space-between;
     width: 100%;
+    margin-bottom: 30px;
 }
 
-.modal header img {
+.modal-header img {
     cursor: pointer;
 }
 
-.modal header h2 {
-    font-size: 64px;
+.modal-header h2 {
+    font-size: 60px;
     font-weight: normal;
-    text-align: center;
+    margin: 0;
+    line-height: 50px;
+}
+
+.modal-header p {
+    font-size: 60px;
+    font-weight: normal;
+    margin: 0;
+    line-height: 50px;
 }
 
 form {
@@ -185,7 +255,7 @@ form {
 
 form label {
     color: #312E2E;
-    font-size: 36px;
+    font-size: 30px;
 }
 
 form div {
@@ -193,12 +263,36 @@ form div {
     flex-direction: column;
     width: 100%;
     align-items: self-start;
-    margin-bottom: 26px;
+    margin-bottom: 10px;
 }
 
-form input {
+form input.text-control {
     width: 100%;
-    height: 68px;
+    height: 60px;
     border: none;
     border-radius: 5px;
+}
+
+form textarea {
+    width: 100%;
+    height: 204px;
+    border: none;
+    border-radius: 5px;
+}
+
+form input.submit_button {
+    font-size: 1.25rem; 
+    font-weight: bold;
+    color: white;
+    padding: 20px 50px;
+    margin-top: 10px;
+    border: none;
+    background-color: #901C1C;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form input.submit_button:hover {
+    color: #000000;
+    background-color: #DB8876;
 }
