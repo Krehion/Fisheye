@@ -67,37 +67,100 @@
 
 .gallery-filter-container {
     margin: 30px 100px;
-}
-
-.gallery-filter-container form {
     display: flex;
     flex-direction: row;
+    align-items: flex-start;
     font-size: 1.125rem;
-    align-items: center;
 }
 
-.gallery-filter-container form label {
-    font-size: 1.125rem;
+.gallery-filter-container p {
     font-weight: 700; 
     padding: 0 20px 0 0;
+    margin: 15px 0;
 }
 
-#gallery-filter {
-    background-color: #901C1C;
-    color: #ffffff;
+.dropdown-container {
+    position: relative;
+    height: 100%;
+}
+
+.dropdown {
+    position: absolute;
+    z-index: 10;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 190px;
+}
+
+.dropdown:hover {
+    height: 150px;
+}
+
+.dropdown button {
     border: none;
-    padding: 10px;
-    font-weight: 500; 
-    font-size: 1rem; 
-    border-radius: 0.3rem;
+    background-color: #901C1C;
 }
 
-#gallery-filter option {
-    border-bottom: solid 1px #ffffff;
+.rotate {
+    transform: rotate(180deg);
 }
 
-#gallery-filter option:hover {
-    background-color: rgb(46, 145, 71);
+.dropdown_content {
+    max-height: 0;
+    background-color: #901C1C;
+    transition: max-height .1s ease-in-out;
+    margin: 0;
+    position: relative;
+    top: -50px;
+    left: -40px;
+}
+
+.dropdown_content li {
+    position: relative;
+    width: 190px;
+    list-style: none;
+}
+
+.dropdown_content li::before{
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 85%;
+    height: 1px;
+    background-color: #ffffff;
+}
+
+.btn_drop,
+.dropdown_content li button{
+    height: 50px;
+    padding: 15px;
+    font-size: 1.125rem;
+    color: #ffffff;
+}
+
+.btn_drop {
+    display: flex;
+    justify-content: space-between;
+    width: 190px;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+}
+
+.dropdown_content li button {
+    width: 100%;
+    text-align: left;
+}
+
+.dropdown_content li button:hover,
+.dropdown_content li button:focus,
+.btn_drop:hover,
+.btn_drop:focus{
+    background-color: #DB8876;
+    color: #000000;
+    cursor: pointer;
 }
 
 /*##### GALLERY #####*/
