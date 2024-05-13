@@ -3,6 +3,7 @@ class PhotographerPage {
         this.$photographerInfo = document.querySelector("#photographer-profile");
         this.$photographerGallery = document.querySelector("#gallery");
         this.$main = document.querySelector("#main");
+        this.$modalTxt = document.querySelector(".modal-header-txt")
         this.photographerApi = new PhotographerApi('../../data/photographers.json');
     }
 
@@ -25,6 +26,11 @@ class PhotographerPage {
         // Generate profile section
         this.$photographerInfo.appendChild(
             template.createPhotographerProfile()
+        );
+
+        // Add photographeer's name in contact form
+        this.$modalTxt.appendChild(
+            template.getPhotographerName()
         );
 
         // Fetch gallery data

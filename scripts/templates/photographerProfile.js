@@ -29,4 +29,15 @@ class PhotographerProfile {
 
         return $photographerInfo
     }
+
+    getPhotographerName() {
+        const $photographerContactName = document.createElement('p')
+        $photographerContactName.classList.add('modal-form-name')
+
+        const nameContent = `${this._photographer.name}`
+
+        $photographerContactName.innerHTML = nameContent
+
+        return $photographerContactName
+    }
 }
