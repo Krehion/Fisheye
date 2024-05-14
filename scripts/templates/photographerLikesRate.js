@@ -3,15 +3,26 @@ class PhotographerLikesRate {
         this._photographer = photographer
     }
 
-    createPhotographerLikesRate() { //WIP : reste à gérer calcul des likes
+    createPhotographerLikesRate() {
         const $rateBox = document.createElement('div');
         $rateBox.classList.add('likes-rate-box')
 
+        // Calculate and display the sum of likes
+        // Select all elements with class "media-likes"
+        let likesElements = document.getElementsByClassName("media-likes");
+        // Initialize sum
+        let sum = 0;
+        // Loop through each element and sum up their values
+        for (let i = 0; i < likesElements.length; i++) {
+            // Convert text content to number and add to sum
+            sum += parseInt(likesElements[i].textContent);
+        }
+
         const $rateContent = `
-        <p>297&nbsp;081&nbsp;<span class="total-likes-heart">♥</span></p>
+        <p>${sum}<span class="total-likes-heart">&nbsp;♥</span></p>
         <p>${this._photographer.price}€ / jour</p>
         `
-        
+
         $rateBox.innerHTML = $rateContent
 
         return $rateBox

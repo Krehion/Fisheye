@@ -27,7 +27,7 @@ class PhotographerMedias {
         const galleryText = `
         <div class="gallery-text-container">
             <h2>${this._media.title}</h2>
-            <p>${this._media.likes} <span class="heart">♥</span></p>
+            <p><span class="media-likes">${this._media.likes}</span> <span class="heart">♥</span></p>
         </div>`;
 
         $mediaGallery.innerHTML = mediaContent + galleryText;
