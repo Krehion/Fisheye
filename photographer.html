@@ -8,11 +8,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Fisheye - photographe </title>
   </head>
-  <body>
-    <header role="banner">
+  <body id="body">
+    <header id="header" role="banner" aria-hidden="false">
       <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/></a>
     </header>
-    <main id="main" role="main">
+    <main id="main" role="main" aria-hidden="false">
       <section id="photographer-profile"></section>
       <div class="gallery-filter-container">
         <p>Trier par</p>
@@ -39,60 +39,66 @@
       </div>
       <section id="gallery"></section>
     </main>
-    <div id="contact_modal">
+    <div id="contact_modal" role="dialog" aria-hidden="true">
 			<div class="modal">
 				<div class="modal-header">
-          <div class="modal-header-txt">
-            <h2>Contactez-moi</h2><br>
+          <div class="modal-header-txt" tabindex="0" aria-labelledby="contact-title info-name">
+            <h2 id="contact-title">Contactez-moi</h2><br>
           </div>
-          <div class="modal-header-close">
-            <img src="assets/icons/close.svg" alt="Fermer" class="modal-close-btn" />
-          </div>
+          <button class="modal-close-btn" aria-label="fermer la modale">
+            &nbsp;
+          </button>
         </div>
 				<form
               name="contact"
               id="form"
               action="index.html"
               method="get"
-              onsubmit="return validate();"
            >
               <div class="formData">
-                <label for="firstName">Prénom</label><br>
+                <label for="firstName" tabindex="0" aria-label="first name" id="label-first-name">Prénom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="firstName"
                   name="firstName"
                   minlength="2"
+                  required
+                  aria-labelledby="label-first-name"
                ><br>
               </div>
               <div class="formData">
-                <label for="lastName">Nom</label><br>
+                <label for="lastName" tabindex="0" aria-label="last name" id="label-last-name">Nom</label><br>
                 <input
                   class="text-control"
                   type="text"
                   id="lastName"
                   name="lastName"
+                  required
+                  aria-labelledby="label-last-name"
                ><br>
               </div>
               <div class="formData">
-                <label for="email">Email</label><br>
+                <label for="email" tabindex="0" aria-label="email" id="label-email">Email</label><br>
                 <input
                   class="text-control"
                   type="email"
                   id="email"
                   name="email"
+                  required
+                  aria-labelledby="label-email"
                ><br>
               </div>
               <div class="formData">
-                <label for="message">Votre message</label><br>
-                <textarea></textarea><br>
+                <label for="message" tabindex="0" aria-label="Your message" id="label-message">Votre message</label><br>
+                <textarea id="message" name="message" aria-labelledby="label-message"></textarea><br>
               </div>
               
               <input
                 class="submit_button"
                 type="submit"
                 value="Envoyer"
+                aria-label="envoyer"
              >
             </form>
 			</div>
@@ -114,6 +120,7 @@
     <script src="/scripts/pages/photographer.js"></script>
     <!-- Utils -->
     <script src="/scripts/utils/galleryFilter.js"></script>
-    <script src="/scripts/utils/contactForm.js"></script>
+    <script src="/scripts/utils/contactModal.js"></script>
+    <script src="/scripts/utils/contactform.js"></script>
   </body>
 </html>

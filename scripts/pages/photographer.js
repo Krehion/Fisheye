@@ -28,7 +28,7 @@ class PhotographerPage {
             template.createPhotographerProfile()
         );
 
-        // Add photographeer's name in contact form
+        // Add photographer's name in contact form
         this.$modalTxt.appendChild(
             template.getPhotographerName()
         );

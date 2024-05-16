@@ -9,7 +9,7 @@ class PhotographerProfile {
 
         const infoContent = `
         <div id="photographer-info-txt">
-            <h1 tabindex="0">${this._photographer.name}</h1>
+            <h1 tabindex="0" id="info-name">${this._photographer.name}</h1>
             <div tabindex="0">
                 <p class="info-localization">${this._photographer.city}, ${this._photographer.country}</p>
                 <p class="info-tagline">${this._photographer.tagline}</p>
