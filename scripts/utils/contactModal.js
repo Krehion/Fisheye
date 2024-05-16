@@ -18,7 +18,6 @@ setTimeout(function() {
 
     // display contact form function
     function displayModal() {
-        const body = document.getElementById("body");
         const header = document.getElementById("header");
         const main = document.getElementById("main");
         const modal = document.getElementById("contact_modal");
@@ -26,13 +25,11 @@ setTimeout(function() {
         main.setAttribute('aria-hidden', 'true')
         modal.setAttribute('aria-hidden', 'false')
         modal.style.display = "flex";
-        body.classList.add("no-scroll")
         modalTitle.focus();
     }
 
     // hide contact form function
     function closeModal() {
-        const body = document.getElementById("body");
         const header = document.getElementById("header");
         const main = document.getElementById("main");
         const modal = document.getElementById("contact_modal");
@@ -40,7 +37,6 @@ setTimeout(function() {
         main.setAttribute('aria-hidden', 'false')
         modal.setAttribute('aria-hidden', 'true')
         modal.style.display = "none";
-        body.classList.remove("no-scroll")
     }
 
     // Trap focus inside modal for keyboard navigation
