@@ -15,6 +15,15 @@ setTimeout(function() {
 
     // hide contact form event
     closeBtn.addEventListener("click", closeModal);
+    document.addEventListener('keydown', function(e) { // when escape key is pressed
+        let isEscPressed = e.key === 'Escape' || e.code === 'Escape';
+
+        if (isEscPressed && modal.getAttribute("aria-hidden") === "false") {
+            closeModal();
+        } else {
+            return;
+        }
+    });
 
     // display contact form function
     function displayModal() {
