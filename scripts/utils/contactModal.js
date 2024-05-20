@@ -1,4 +1,4 @@
-setTimeout(function() {
+function modal() {
     // DOM Elements
     const contactBtn = document.querySelector(".contact_button");
     const closeBtn = document.querySelector(".modal-close-btn");
@@ -70,4 +70,4 @@ setTimeout(function() {
     });
 
     firstFocusableElement.focus();
-}, 200);
+}

@@ -92,17 +92,17 @@
     width: 190px;
 }
 
-.dropdown:hover, .dropdown:focus {
+.dropdown:hover {
     height: 150px;
+}
+
+.dropdown:hover .fa-chevron-down {
+    transform: rotate(180deg);
 }
 
 .dropdown button {
     border: none;
     background-color: #901C1C;
-}
-
-.rotate {
-    transform: rotate(180deg);
 }
 
 .dropdown_content {

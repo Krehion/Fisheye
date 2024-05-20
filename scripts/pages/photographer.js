@@ -7,6 +7,10 @@ class PhotographerPage {
         this.photographerApi = new PhotographerApi('../../data/photographers.json');
     }
 
+    selectId(photographer) {
+        return photographer.id === id;
+    }
+    
     async init() {
         let id = parseInt(new URL(document.location).searchParams.get("id"));
         // Fetch photographer data from the API
@@ -14,9 +18,7 @@ class PhotographerPage {
         const myPhotographers = photographersData.filter(selectId);
         
         
-        function selectId(photographer) {
-            return photographer.id === id;
-        }
+        
 
         const myPhotographer = myPhotographers[0]; // get the (only) element from generated array
 
@@ -28,6 +30,9 @@ class PhotographerPage {
             template.createPhotographerProfile()
         );
 
+        // Handle modal events now that the contact button is generated
+        modal();
+
         // Add photographer's name in contact form
         this.$modalTxt.appendChild(
             template.getPhotographerName()
@@ -35,10 +40,9 @@ class PhotographerPage {
 
         // Fetch gallery data
         const galleryData = await this.photographerApi.getGallery(id);
-        const myGallery = galleryData
 
-        // Generate gallery
-        myGallery
+        // Generate gallery : à mettre dans une function -> pouvoir supprimer contenu et rappeler la function pour le tri
+        galleryData
             .map(mediaData => MediaFactory.createMedia(mediaData))
             .forEach(media => {
                 const template = new PhotographerMedias(media);
@@ -46,6 +50,10 @@ class PhotographerPage {
                     template.createMediaGallery()
                 );
             });
+        
+
+        // Handle gallery sorting by
+        sortBy();
 
         // Fetch likes and rate data
         const templateLikes = new PhotographerLikesRate(photographerObj);
