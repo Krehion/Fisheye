@@ -96,6 +96,7 @@ class PhotographerPage {
                 template.createMediaGallery()
             );
         });
+        likes();
     }
 
     // Generate profile section

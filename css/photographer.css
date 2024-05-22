@@ -203,7 +203,7 @@
     font-size: 1.5rem;
 }
 
-.gallery-text-container p {
+.gallery-text-container div {
     margin: 0;
     color: #901C1C; 
     font-size: 1.5rem;
@@ -212,6 +212,14 @@
 
 .heart {
     font-size: 1.8rem;
+    border: none;
+    background: transparent;
+    color: #901C1C;
+}
+
+.heart:hover {
+    color: #D3573C;
+    cursor: pointer;
 }
 
 .contact_button {
