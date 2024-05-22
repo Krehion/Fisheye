@@ -32,47 +32,50 @@ class PhotographerPage {
 
     handleSort(galleryData) {
         const currentFilter = document.querySelector("#current_filter");
-        currentFilter.addEventListener("change", function(e){
-            e.preventDefault();
+    
+        // Create observer (event listener won't work for inner text changes)
+        const filterObserver = new MutationObserver((mutationsList) => {
+            for (let mutation of mutationsList) {
+                if (mutation.type === 'childList') {
+                    // Trigger the right sorting corresponding to #current_filter
+                    let newGalleryData;
+                    if (currentFilter.innerText == "Titre") {
+                        newGalleryData = this.sortByTitle(galleryData);
+                    } else if (currentFilter.innerText == "Popularité") {
+                        newGalleryData = this.sortByPop(galleryData);
+                    } else if (currentFilter.innerText == "Date") {
+                        newGalleryData = this.sortByDate(galleryData);
+                    }
 
-            // Trigger the right sorting corresponding to #current_filter
-            let newGalleryData;
-            if (currentFilter.innerText == "Titre") {
-                newGalleryData = this.sortByTitle(galleryData);
-            } else if (currentFilter.innerText == "Popularité") {
-                newGalleryData = this.sortByPop(galleryData);
-            } else if (currentFilter.innerText == "Date") {
-                newGalleryData = this.sortByDate(galleryData);
+                    // Empty current gallery
+                    this.dropGallery();
+    
+                    // Generate new gallery
+                    this.setGallery(newGalleryData);
+                }
             }
-
-            // Empty current gallery
-            this.dropGallery();
-
-            // Generate new gallery
-            this.setGallery(newGalleryData);
-        }.bind(this)); // Use bind to keep the context of 'this'
-    }
-    
-// TODO
-    sortByPop(medias) {
-        const mediaOrdered = Array.from(medias);
-        mediaOrdered.sort(function (a, b) {
-            return a.likes - b.likes;
         });
-        console.log(mediaOrdered);
-        // Update gallery with sorted data
-        this.dropGallery();
-        this.setGallery(mediaOrdered);
+    
+        // Configuration of the observer
+        const config = { childList: true, subtree: true };
+    
+        // Start observing the target node for configured mutations
+        filterObserver.observe(currentFilter, config);
+    }    
+    
+    sortByPop(medias) {
+        const mediaOrdered = medias.slice().sort((a, b) => b.likes - a.likes);
+        return mediaOrdered;
     }
 
-// TODO
-    sortByDate() {
-        // Sorting logic here
-        }
-    
-// TODO
-    sortByTitle() {
-        // Sorting logic here
+    sortByDate(medias) {
+        const mediaOrdered = medias.slice().sort((a, b) => new Date(b.date) - new Date(a.date));
+        return mediaOrdered;
+    }
+
+    sortByTitle(medias) {
+        const mediaOrdered = medias.slice().sort((a, b) => a.title.localeCompare(b.title));
+        return mediaOrdered;
     }
 
     // Empty gallery (used to display new sorted one)
@@ -82,14 +85,17 @@ class PhotographerPage {
 
     // Generate gallery
     setGallery(galleryData) {
-        galleryData
-            .map(mediaData => MediaFactory.createMedia(mediaData))
-            .forEach(media => {
-                const template = new PhotographerMedias(media);
-                this.photographerGallery.appendChild(
-                    template.createMediaGallery()
-                );
-            });
+        if (!galleryData || !Array.isArray(galleryData)) {
+            console.error("Invalid galleryData:", galleryData);
+            return;
+        }
+        galleryData.forEach(mediaData => {
+            const media = MediaFactory.createMedia(mediaData);
+            const template = new PhotographerMedias(media);
+            this.photographerGallery.appendChild(
+                template.createMediaGallery()
+            );
+        });
     }
 
     // Generate profile section
@@ -111,9 +117,7 @@ class PhotographerPage {
     async getPhotographer(id) {
         // Fetch photographer data from the API
         const photographersData = await this.photographerApi.getPhotographers();
-        const myPhotographers = photographersData.filter(function(photographer) {
-            return photographer.id === id;
-        });
+        const myPhotographers = photographersData.filter(photographer => photographer.id === id);
 
         // get the (only) element from generated array
         const myPhotographerId = myPhotographers[0];
