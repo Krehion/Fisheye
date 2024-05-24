@@ -27,7 +27,10 @@ class PhotographerMedias {
         const galleryText = `
         <div class="gallery-text-container">
             <h2>${this._media.title}</h2>
-            <div><span class="media-likes">${this._media.likes}</span> <input type="checkbox" class="heart">♥</input></div>
+            <div class="media-likes-container">
+                <span class="media-likes">${this._media.likes}</span>&nbsp;
+                <input type="checkbox" class="heart-checkbox">
+            </div>
         </div>`;
 
         $mediaGallery.innerHTML = mediaContent + galleryText;

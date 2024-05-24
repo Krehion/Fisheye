@@ -1,6 +1,6 @@
 function likes() {
     // Select all heart checkboxes
-    const heartChecks = document.querySelectorAll('.heart');
+    const heartChecks = document.querySelectorAll('.heart-checkbox');
 
     // Add click event listener to each button
     heartChecks.forEach(checkbox => {
@@ -27,6 +27,4 @@ function likes() {
     });
 }
 
-// TODO : update style of heart (hide checkbox)
-
-// TODO : update total number of likes
+// TODO : update total number of likes ?

@@ -203,23 +203,13 @@
     font-size: 1.5rem;
 }
 
-.gallery-text-container div {
+.media-likes-container {
+    display: flex;
+    align-items: center;
     margin: 0;
     color: #901C1C; 
     font-size: 1.5rem;
     font-weight: 500; 
-}
-
-.heart {
-    font-size: 1.8rem;
-    border: none;
-    background: transparent;
-    color: #901C1C;
-}
-
-.heart:hover {
-    color: #D3573C;
-    cursor: pointer;
 }
 
 .contact_button {
@@ -237,6 +227,43 @@
     color: #000000;
     background-color: #DB8876;
 }
+
+/*##### LIKE BUTTON #####*/
+
+.heart-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    width: 23px;
+    height: 23px;
+    font-size: 1.5rem;
+    padding: 0;
+    margin: 0;
+    border: none;
+}
+
+.heart-checkbox::before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    clip-path: path("M12 4.248c-3.148-5.402-12-3.825-12 2.944 0 4.661 5.571 9.427 12 15.808 6.43-6.381 12-11.147 12-15.808 0-6.792-8.875-8.306-12-2.944z");
+    transform: scale(0.8);
+    background-color: #901C1C;
+}
+
+.heart-checkbox:checked::before {
+    background-color: #D3573C;
+}
+
+.heart-checkbox:hover {
+    cursor: pointer;
+}
+
+.heart-checkbox:hover::before {
+    background-color: #D3573C;
+  }
 
 /*##### STICKY LIKES & RATE BOX #####*/
 
