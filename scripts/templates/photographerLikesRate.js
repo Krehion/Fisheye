@@ -19,7 +19,7 @@ class PhotographerLikesRate {
         }
 
         const $rateContent = `
-        <p>${sum}<span class="total-likes-heart">&nbsp;♥</span></p>
+        <p class="total-likes">${sum}</p>
         <p>${this._photographer.price}€ / jour</p>
         `
 
