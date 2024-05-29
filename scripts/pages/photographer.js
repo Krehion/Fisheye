@@ -95,8 +95,10 @@ class PhotographerPage {
             this.photographerGallery.appendChild(
                 template.createMediaGallery()
             );
+            // ajouter data-index
         });
         likes();
+        lightbox();
     }
 
     // Generate profile section

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <meta charset="utf-8">
     <title>Fisheye - photographe</title>
@@ -11,12 +12,17 @@
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   </head>
+
   <body>
+
     <header id="header" role="banner" aria-hidden="false">
       <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/></a>
     </header>
+
     <main id="main" role="main" aria-hidden="false">
+
       <section id="photographer-profile"></section>
+
       <div class="gallery-filter-container">
         <p>Trier par</p>
           <div class="dropdown-container" >
@@ -40,8 +46,22 @@
               </div>
           </div>
       </div>
+
       <section id="gallery"></section>
+
     </main>
+
+    <!-- Lightbox -->
+    <div class="lightbox-wrapper" aria-hidden="false">
+      <div class="lightbox">
+        <button class="prev-btn"><i class="fa-solid fa-chevron-left"></i></button>
+        <button class="next-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        <button class="lightbox-close-btn"><i class="fa-solid fa-x"></i></button>
+        <div class="lightbox-media"></div>
+      </div>
+    </div>
+
+    <!-- Contact modal -->
     <div id="contact_modal" role="dialog" aria-hidden="true">
 			<div class="modal">
 				<div class="modal-header">
@@ -124,6 +144,7 @@
     <!-- Utils -->
     <script src="/scripts/utils/dropdownFilter.js"></script>
     <script src="/scripts/utils/likes.js"></script>
+    <script src="/scripts/utils/lightbox.js"></script>
     <script src="/scripts/utils/contactModal.js"></script>
     <script src="/scripts/utils/contactform.js"></script>
   </body>
