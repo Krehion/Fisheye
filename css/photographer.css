@@ -342,11 +342,11 @@
     height: 90%;
 }
 
-.lightbox-title {
+#lightbox-title {
     color: #901C1C; 
     font-size: 1.5rem;
     font-weight: 400;
-    margin-top: 10px;
+    margin: 10px 0 0 0;
 }
 
 .lightbox-media {

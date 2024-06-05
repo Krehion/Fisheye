@@ -9,6 +9,38 @@ function lightbox(galleryData) {
 
     let currentIndex = 0; // To keep track of the currently displayed media
 
+    function updateFocusableElements() {
+        const focusableElementsSelector = "button, [tabindex], img, video, p";
+        const focusableContent = lightboxWrapper.querySelectorAll(focusableElementsSelector);
+
+        const firstFocusableElement = focusableContent[0];
+        const lastFocusableElement = focusableContent[focusableContent.length - 1];
+
+        // Trap focus inside modal for keyboard navigation
+        lightboxWrapper.addEventListener('keydown', function(e) {
+            console.log(focusableContent)
+            let isTabPressed = e.key === 'Tab' || e.code === 'Tab';
+
+            if (!isTabPressed) {
+                return;
+            }
+
+            if (e.shiftKey) { // if shift key pressed for shift + tab combination
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus(); // add focus for the last focusable element
+                    e.preventDefault();
+                }
+            } else { // if tab key is pressed
+                if (document.activeElement === lastFocusableElement) { // if focused has reached to last focusable element then focus first focusable element after pressing tab
+                    firstFocusableElement.focus(); // add focus for the first focusable element
+                    e.preventDefault();
+                }
+            }
+        });
+
+        firstFocusableElement.focus();
+    }
+
     // Function to attach event listeners
     function attachEventListeners() {
         allMedias.forEach((mediaContainer, index) => {
@@ -60,6 +92,9 @@ function lightbox(galleryData) {
 
         lightboxWrapper.style.display = "flex";
         lightboxWrapper.setAttribute('aria-hidden', 'false');
+
+        // Update focusable elements and trap focus
+        updateFocusableElements();
     }
 
     // Show previous media

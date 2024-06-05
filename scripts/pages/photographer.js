@@ -101,7 +101,6 @@ class PhotographerPage {
             );
         });
         likes();
-        lightbox(galleryData);
     }
 
     // Generate lightbox
@@ -110,6 +109,7 @@ class PhotographerPage {
         this.lightboxContainer.appendChild(
             template.lightboxContent()
         );
+        lightbox(galleryData);
     }
 
     // Generate profile section
