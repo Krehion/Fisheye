@@ -106,11 +106,10 @@ class PhotographerPage {
 
     // Generate lightbox
     setLightbox(galleryData) {
-        const template = new Lightbox();
+        const template = new Lightbox(galleryData[0]); // Pass the first media data initially
         this.lightboxContainer.appendChild(
             template.lightboxContent()
         );
-        lightbox(galleryData); // Pass galleryData to lightbox
     }
 
     // Generate profile section
