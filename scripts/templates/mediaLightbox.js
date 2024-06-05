@@ -4,6 +4,9 @@ class Lightbox {
     }
 
     lightboxContent() {
+        const lightboxContentWrapper = document.createElement("div");
+        lightboxContentWrapper.classList.add("lightbox-content-wrapper");
+
         const lightboxMediaWrapper = document.createElement("div");
         lightboxMediaWrapper.classList.add("lightbox-media");
         let lightboxMedia;
@@ -19,6 +22,14 @@ class Lightbox {
         }
 
         lightboxMediaWrapper.innerHTML = lightboxMedia;
-        return lightboxMediaWrapper;
+
+        const lightboxTitle = document.createElement("div");
+        lightboxTitle.classList.add("lightbox-title");
+        lightboxTitle.textContent = this._media.title;
+
+        lightboxContentWrapper.appendChild(lightboxMediaWrapper);
+        lightboxContentWrapper.appendChild(lightboxTitle);
+
+        return lightboxContentWrapper;
     }
 }
