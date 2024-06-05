@@ -4,9 +4,11 @@ class Lightbox {
     }
 
     lightboxContent() {
+        // Create global wrapper for styling
         const lightboxContentWrapper = document.createElement("div");
         lightboxContentWrapper.classList.add("lightbox-content-wrapper");
 
+        // Create media wrapper
         const lightboxMediaWrapper = document.createElement("div");
         lightboxMediaWrapper.classList.add("lightbox-media");
         let lightboxMedia;
@@ -23,10 +25,12 @@ class Lightbox {
 
         lightboxMediaWrapper.innerHTML = lightboxMedia;
 
+        // Create textbox for media title
         const lightboxTitle = document.createElement("div");
         lightboxTitle.classList.add("lightbox-title");
         lightboxTitle.textContent = this._media.title;
 
+        // Add media & title to global wrapper
         lightboxContentWrapper.appendChild(lightboxMediaWrapper);
         lightboxContentWrapper.appendChild(lightboxTitle);
 
