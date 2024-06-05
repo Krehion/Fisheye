@@ -4,7 +4,7 @@ function modal() {
     const closeBtn = document.querySelector(".modal-close-btn");
     const modalTitle = document.querySelector(".modal-header-txt")
 
-    const  focusableElements = "button, [href], input, select, textarea, [tabindex]";
+    const focusableElements = "button, [href], input, select, textarea, [tabindex]";
     const modal = document.querySelector("#contact_modal");
     const firstFocusableElement = modal.querySelectorAll(focusableElements)[0]; // get first element to be focused inside modal
     const focusableContent = modal.querySelectorAll(focusableElements);
