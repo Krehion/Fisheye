@@ -339,10 +339,10 @@
     width: 92%;
     height: 90%;
     border-radius: 5px;
-    border: 1px solid #000000; /* remove once lightbox is functional */
+    overflow: hidden;
 }
 
-.lightbox-media img {
+.lightbox-media img, .lightbox-media video {
     width: 100%;
     height: 100%;
     object-fit: cover;

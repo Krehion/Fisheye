@@ -4,6 +4,7 @@ class PhotographerPage {
         this.photographerGallery = document.querySelector("#gallery");
         this.main = document.querySelector("#main");
         this.modalTxt = document.querySelector(".modal-header-txt");
+        this.lightboxContainer = document.querySelector(".lightbox");
         this.photographerApi = new PhotographerApi('../../data/photographers.json');
     }
     
@@ -20,6 +21,9 @@ class PhotographerPage {
 
         // Handle gallery sorting by
         this.handleSort(galleryData);
+
+        // Add media to lightbox
+        this.setLightbox(galleryData);
 
         // Fetch likes and rate data
         const templateLikes = new PhotographerLikesRate(photographerObj);
@@ -39,11 +43,11 @@ class PhotographerPage {
                 if (mutation.type === 'childList') {
                     // Trigger the right sorting corresponding to #current_filter
                     let newGalleryData;
-                    if (currentFilter.innerText == "Titre") {
+                    if (currentFilter.innerText === "Titre") {
                         newGalleryData = this.sortByTitle(galleryData);
-                    } else if (currentFilter.innerText == "Popularité") {
+                    } else if (currentFilter.innerText === "Popularité") {
                         newGalleryData = this.sortByPop(galleryData);
-                    } else if (currentFilter.innerText == "Date") {
+                    } else if (currentFilter.innerText === "Date") {
                         newGalleryData = this.sortByDate(galleryData);
                     }
 
@@ -61,8 +65,8 @@ class PhotographerPage {
     
         // Start observing the target node for configured mutations
         filterObserver.observe(currentFilter, config);
-    }    
-    
+    }
+
     sortByPop(medias) {
         const mediaOrdered = medias.slice().sort((a, b) => b.likes - a.likes);
         return mediaOrdered;
@@ -95,10 +99,18 @@ class PhotographerPage {
             this.photographerGallery.appendChild(
                 template.createMediaGallery()
             );
-            // ajouter data-index
         });
         likes();
-        lightbox();
+        lightbox(galleryData);
+    }
+
+    // Generate lightbox
+    setLightbox(galleryData) {
+        const template = new Lightbox();
+        this.lightboxContainer.appendChild(
+            template.lightboxContent()
+        );
+        lightbox(galleryData); // Pass galleryData to lightbox
     }
 
     // Generate profile section
