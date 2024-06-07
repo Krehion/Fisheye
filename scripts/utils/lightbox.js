@@ -18,7 +18,6 @@ function lightbox(galleryData) {
 
         // Trap focus inside modal for keyboard navigation
         lightboxWrapper.addEventListener('keydown', function(e) {
-            console.log(focusableContent)
             let isTabPressed = e.key === 'Tab' || e.code === 'Tab';
 
             if (!isTabPressed) {
@@ -43,10 +42,20 @@ function lightbox(galleryData) {
 
     // Function to attach event listeners
     function attachEventListeners() {
+        // Display lightbox events
         allMedias.forEach((mediaContainer, index) => {
             mediaContainer.addEventListener("click", () => {
                 currentIndex = index;
                 displayLightbox(galleryData[currentIndex]);
+            });
+            mediaContainer.addEventListener("keydown", function(e) {
+                let isEnterPressed = e.key === 'Enter' || e.code === 'Enter';
+                let isSpacePressed = e.key === ' ' || e.code === 'Space';
+                if (isEnterPressed || isSpacePressed) {
+                    event.preventDefault(); // Prevent default behavior (scrolling down for space key)
+                    currentIndex = index;
+                    displayLightbox(galleryData[currentIndex]);
+                }
             });
         });
 

@@ -16,7 +16,7 @@
   <body>
 
     <header id="header" role="banner" aria-hidden="false">
-      <a href="index.html"><img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/></a>
+      <a href="index.html" tabindex="1"><img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/></a>
     </header>
 
     <main id="main" role="main" aria-hidden="false">
@@ -24,23 +24,23 @@
       <section id="photographer-profile"></section>
 
       <div class="gallery-filter-container">
-        <p>Trier par</p>
-          <div class="dropdown-container" >
+        <p tabindex="7">Trier par</p>
+          <div class="dropdown-container">
               <div class="dropdown">
                   <button class="btn_drop" type="button" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter options" aria-label="Sort by">
                       <span id="current_filter">Titre</span>
                       <span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
                   </button>
 
-                  <ul class="dropdown_content" aria-hidden="true">
+                  <ul class="dropdown_content" aria-hidden="true" >
                       <li role="option">
-                          <button type="button" tabindex="0" aria-label="Sort by title" class="sort-by-title">Titre</button>
+                          <button type="button" tabindex="8" aria-label="Sort by title" class="sort-by-title">Titre</button>
                       </li>
                       <li role="option">
-                          <button type="button" tabindex="0" aria-label="Sort by popularity" class="sort-by-pop">Popularité</button>
+                          <button type="button" tabindex="9" aria-label="Sort by popularity" class="sort-by-pop">Popularité</button>
                       </li>
                       <li role="option">
-                          <button type="button" tabindex="0" aria-label="Sort by date" class="sort-by-date">Date</button>
+                          <button type="button" tabindex="10" aria-label="Sort by date" class="sort-by-date">Date</button>
                       </li>
                   </ul>
               </div>
@@ -52,7 +52,7 @@
     </main>
 
     <!-- Lightbox -->
-    <div class="lightbox-wrapper" aria-hidden="false">
+    <div class="lightbox-wrapper" role="dialog" aria-hidden="false">
       <div class="lightbox">
         <button class="prev-btn" aria-label="média précédent">&nbsp;</button>
         <button class="next-btn" aria-label="média suivant">&nbsp;</button>
