@@ -39,3 +39,24 @@ const btnDrop = document.querySelector(".btn_drop");
 // Make .btn_drop unfocusable
 btnDrop.setAttribute("tabindex", "-1");
 // TODO : display .dropdown_content on top of .btn_drop & make .dropdown height 150px when a sort-by button is focused 
+
+btnSortPop.addEventListener("focus", function() {
+    btnDrop.style.zIndex = "-10";
+});
+btnSortPop.addEventListener("blur", function() {
+    btnDrop.style.zIndex = "100";
+});
+
+btnSortDate.addEventListener("focus", function() {
+    btnDrop.style.zIndex = "-10";
+});
+btnSortDate.addEventListener("blur", function() {
+    btnDrop.style.zIndex = "100";
+});
+
+btnSortTitle.addEventListener("focus", function() {
+    btnDrop.style.zIndex = "-10";
+});
+btnSortTitle.addEventListener("blur", function() {
+    btnDrop.style.zIndex = "100";
+});
