@@ -20,9 +20,13 @@ class PhotographerLikesRate {
         }
 
         const rateContent = `
-        <p class="total-likes">${sum}</p>
+        <p class="total-likes">
+            <span aria-hidden="true">${sum}</span>
+            <span class="screen-reader-only">${sum} likes</span>
+        </p>
         <p>${this._photographer.price}€ / jour</p>
         `
+        // screen reader ignores a simple "aria-label" on the <p> element so we add a hidden text
 
         rateBox.innerHTML = rateContent
 

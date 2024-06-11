@@ -27,27 +27,27 @@
         <p tabindex="7">Trier par</p>
           <div class="dropdown-container">
               <div class="dropdown">
-                  <button class="btn_drop" type="button" role="button" aria-haspopup="listbox" aria-expanded="false" aria-controls="filter options" aria-label="Sort by">
+                  <button class="btn_drop" aria-hidden="true">
                       <span id="current_filter">Titre</span>
                       <span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
                   </button>
 
-                  <ul class="dropdown_content" aria-hidden="true" >
+                  <ul class="dropdown_content">
                       <li role="option">
-                          <button type="button" tabindex="8" aria-label="Sort by title" class="sort-by-title">Titre</button>
+                          <button type="button" tabindex="8" aria-label="Trier par titre" class="sort-by-title">Titre</button>
                       </li>
                       <li role="option">
-                          <button type="button" tabindex="8" aria-label="Sort by popularity" class="sort-by-pop">Popularité</button>
+                          <button type="button" tabindex="8" aria-label="Trier par popularité" class="sort-by-pop">Popularité</button>
                       </li>
                       <li role="option">
-                          <button type="button" tabindex="8" aria-label="Sort by date" class="sort-by-date">Date</button>
+                          <button type="button" tabindex="8" aria-label="Trier par date" class="sort-by-date">Date</button>
                       </li>
                   </ul>
               </div>
           </div>
       </div>
 
-      <section id="gallery"></section>
+      <section id="gallery" tabindex="0" aria-label="galerie"></section>
 
     </main>
 
