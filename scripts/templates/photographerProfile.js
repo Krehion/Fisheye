@@ -1,13 +1,13 @@
 class PhotographerProfile {
-    constructor(photographer) {
-        this._photographer = photographer
-    }
+	constructor(photographer) {
+		this._photographer = photographer;
+	}
 
-    createPhotographerProfile() {
-        const $photographerInfo = document.createElement('div');
-        $photographerInfo.classList.add('photographer-info-wrapper')
+	createPhotographerProfile() {
+		const $photographerInfo = document.createElement("div");
+		$photographerInfo.classList.add("photographer-info-wrapper");
 
-        const infoContent = `
+		const infoContent = `
         <div id="photographer-info-txt">
             <h1 tabindex="2" id="info-name">${this._photographer.name}</h1>
             <div tabindex="3">
@@ -23,21 +23,21 @@ class PhotographerProfile {
                 <img src="${this._photographer.portrait}" alt="" />
             </div>
         </div>
-        `
-        
-        $photographerInfo.innerHTML = infoContent
+        `;
 
-        return $photographerInfo
-    }
+		$photographerInfo.innerHTML = infoContent;
 
-    getPhotographerName() {
-        const $photographerContactName = document.createElement('p')
-        $photographerContactName.classList.add('modal-form-name')
+		return $photographerInfo;
+	}
 
-        const nameContent = `${this._photographer.name}`
+	getPhotographerName() {
+		const $photographerContactName = document.createElement("p");
+		$photographerContactName.classList.add("modal-form-name");
 
-        $photographerContactName.innerHTML = nameContent
+		const nameContent = `${this._photographer.name}`;
 
-        return $photographerContactName
-    }
+		$photographerContactName.innerHTML = nameContent;
+
+		return $photographerContactName;
+	}
 }

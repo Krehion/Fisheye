@@ -1,151 +1,193 @@
 <!DOCTYPE html>
 <html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<title>Fisheye - photographe</title>
+		<!-- CSS -->
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<!-- Favicon -->
+		<link rel="icon" type="image/png" href="assets/favicon.png" />
+		<!-- Fonts -->
+		<link
+			href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap"
+			rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+	</head>
 
-  <head>
-    <meta charset="utf-8">
-    <title>Fisheye - photographe</title>
-    <!-- CSS -->
-    <link href="css/style.css" rel="stylesheet" type="text/css" />
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="assets/favicon.png">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  </head>
+	<body>
+		<header id="header" role="banner" aria-hidden="false">
+			<a href="index.html" tabindex="1"
+				><img src="assets/images/logo.png" class="logo" alt="Fisheye home page"
+			/></a>
+		</header>
 
-  <body>
+		<main id="main" role="main" aria-hidden="false">
+			<section id="photographer-profile"></section>
 
-    <header id="header" role="banner" aria-hidden="false">
-      <a href="index.html" tabindex="1"><img src="assets/images/logo.png" class="logo" alt="Fisheye home page"/></a>
-    </header>
+			<div class="gallery-filter-container">
+				<p tabindex="7">Trier par</p>
+				<div class="dropdown-container">
+					<div class="dropdown">
+						<button class="btn_drop" aria-hidden="true">
+							<span id="current_filter">Titre</span>
+							<span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
+						</button>
 
-    <main id="main" role="main" aria-hidden="false">
+						<ul class="dropdown_content">
+							<li role="option">
+								<button
+									type="button"
+									tabindex="8"
+									aria-label="Trier par titre"
+									class="sort-by-title">
+									Titre
+								</button>
+							</li>
+							<li role="option">
+								<button
+									type="button"
+									tabindex="8"
+									aria-label="Trier par popularité"
+									class="sort-by-pop">
+									Popularité
+								</button>
+							</li>
+							<li role="option">
+								<button
+									type="button"
+									tabindex="8"
+									aria-label="Trier par date"
+									class="sort-by-date">
+									Date
+								</button>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
 
-      <section id="photographer-profile"></section>
+			<section id="gallery" tabindex="0" aria-label="galerie"></section>
+		</main>
 
-      <div class="gallery-filter-container">
-        <p tabindex="7">Trier par</p>
-          <div class="dropdown-container">
-              <div class="dropdown">
-                  <button class="btn_drop" aria-hidden="true">
-                      <span id="current_filter">Titre</span>
-                      <span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
-                  </button>
-
-                  <ul class="dropdown_content">
-                      <li role="option">
-                          <button type="button" tabindex="8" aria-label="Trier par titre" class="sort-by-title">Titre</button>
-                      </li>
-                      <li role="option">
-                          <button type="button" tabindex="8" aria-label="Trier par popularité" class="sort-by-pop">Popularité</button>
-                      </li>
-                      <li role="option">
-                          <button type="button" tabindex="8" aria-label="Trier par date" class="sort-by-date">Date</button>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </div>
-
-      <section id="gallery" tabindex="0" aria-label="galerie"></section>
-
-    </main>
-
-    <!-- Lightbox -->
-    <div class="lightbox-wrapper" role="dialog" aria-hidden="false">
-      <div class="lightbox">
-        <button class="prev-btn" aria-label="média précédent">&nbsp;</button>
-        <button class="next-btn" aria-label="média suivant">&nbsp;</button>
-        <button class="lightbox-close-btn" aria-label="fermer la lightbox">&nbsp;</button>
-      </div>
-    </div>
-
-    <!-- Contact modal -->
-    <div id="contact_modal" role="dialog" aria-hidden="true">
-			<div class="modal">
-				<div class="modal-header">
-          <div class="modal-header-txt" tabindex="0" aria-labelledby="contact-title info-name">
-            <h2 id="contact-title">Contactez-moi</h2><br>
-          </div>
-        </div>
-				<form
-              name="contact"
-              id="form"
-              action="index.html"
-              method="get"
-           >
-              <div class="formData">
-                <label for="firstName" tabindex="0" aria-label="first name" id="label-first-name">Prénom</label><br>
-                <input
-                  class="text-control"
-                  type="text"
-                  id="firstName"
-                  name="firstName"
-                  minlength="2"
-                  required
-                  aria-labelledby="label-first-name"
-               ><br>
-              </div>
-              <div class="formData">
-                <label for="lastName" tabindex="0" aria-label="last name" id="label-last-name">Nom</label><br>
-                <input
-                  class="text-control"
-                  type="text"
-                  id="lastName"
-                  name="lastName"
-                  required
-                  aria-labelledby="label-last-name"
-               ><br>
-              </div>
-              <div class="formData">
-                <label for="email" tabindex="0" aria-label="email" id="label-email">Email</label><br>
-                <input
-                  class="text-control"
-                  type="email"
-                  id="email"
-                  name="email"
-                  required
-                  aria-labelledby="label-email"
-               ><br>
-              </div>
-              <div class="formData">
-                <label for="message" tabindex="0" aria-label="Your message" id="label-message">Votre message</label><br>
-                <textarea id="message" name="message" aria-labelledby="label-message"></textarea><br>
-              </div>
-              
-              <input
-                class="submit_button"
-                type="submit"
-                value="Envoyer"
-                aria-label="envoyer"
-             >
-            </form>
-            <button class="modal-close-btn" aria-label="fermer la modale">
-              &nbsp;
-            </button>
+		<!-- Lightbox -->
+		<div class="lightbox-wrapper" role="dialog" aria-hidden="false">
+			<div class="lightbox">
+				<button class="prev-btn" aria-label="média précédent">&nbsp;</button>
+				<button class="next-btn" aria-label="média suivant">&nbsp;</button>
+				<button class="lightbox-close-btn" aria-label="fermer la lightbox">
+					&nbsp;
+				</button>
 			</div>
 		</div>
-    <!-- Scripts -->
-    <!-- API -->
-    <script src="/scripts/api/api.js"></script>
-    <!-- Factories -->
-    <script src="/scripts/factories/mediaFactory.js"></script>
-    <!-- Models -->
-    <script src="/scripts/models/photographer.js"></script>
-    <script src="/scripts/models/mediaImage.js"></script>
-    <script src="/scripts/models/mediaVideo.js"></script>
-    <!-- Templates -->
-    <script src="/scripts/templates/PhotographerProfile.js"></script>
-    <script src="/scripts/templates/PhotographerMedias.js"></script>
-    <script src="/scripts/templates/mediaLightbox.js"></script>
-    <script src="/scripts/templates/PhotographerLikesRate.js"></script>
-    <!-- Pages -->
-    <script src="/scripts/pages/photographer.js"></script>
-    <!-- Utils -->
-    <script src="/scripts/utils/dropdownFilter.js"></script>
-    <script src="/scripts/utils/likes.js"></script>
-    <script src="/scripts/utils/lightbox.js"></script>
-    <script src="/scripts/utils/contactModal.js"></script>
-    <script src="/scripts/utils/contactform.js"></script>
-  </body>
+
+		<!-- Contact modal -->
+		<div id="contact_modal" role="dialog" aria-hidden="true">
+			<div class="modal">
+				<div class="modal-header">
+					<div
+						class="modal-header-txt"
+						tabindex="0"
+						aria-labelledby="contact-title info-name">
+						<h2 id="contact-title">Contactez-moi</h2>
+						<br />
+					</div>
+				</div>
+				<form name="contact" id="form" action="index.html" method="get">
+					<div class="formData">
+						<label
+							for="firstName"
+							tabindex="0"
+							aria-label="first name"
+							id="label-first-name"
+							>Prénom</label
+						><br />
+						<input
+							class="text-control"
+							type="text"
+							id="firstName"
+							name="firstName"
+							minlength="2"
+							required
+							aria-labelledby="label-first-name" /><br />
+					</div>
+					<div class="formData">
+						<label
+							for="lastName"
+							tabindex="0"
+							aria-label="last name"
+							id="label-last-name"
+							>Nom</label
+						><br />
+						<input
+							class="text-control"
+							type="text"
+							id="lastName"
+							name="lastName"
+							required
+							aria-labelledby="label-last-name" /><br />
+					</div>
+					<div class="formData">
+						<label for="email" tabindex="0" aria-label="email" id="label-email"
+							>Email</label
+						><br />
+						<input
+							class="text-control"
+							type="email"
+							id="email"
+							name="email"
+							required
+							aria-labelledby="label-email" /><br />
+					</div>
+					<div class="formData">
+						<label
+							for="message"
+							tabindex="0"
+							aria-label="Your message"
+							id="label-message"
+							>Votre message</label
+						>
+						<br />
+						<textarea
+							id="message"
+							name="message"
+							aria-labelledby="label-message"></textarea
+						><br />
+					</div>
+
+					<input
+						class="submit_button"
+						type="submit"
+						value="Envoyer"
+						aria-label="envoyer" />
+				</form>
+				<button class="modal-close-btn" aria-label="fermer la modale">
+					&nbsp;
+				</button>
+			</div>
+		</div>
+		<!-- Scripts -->
+		<!-- API -->
+		<script src="/scripts/api/api.js"></script>
+		<!-- Factories -->
+		<script src="/scripts/factories/mediaFactory.js"></script>
+		<!-- Models -->
+		<script src="/scripts/models/photographer.js"></script>
+		<script src="/scripts/models/mediaImage.js"></script>
+		<script src="/scripts/models/mediaVideo.js"></script>
+		<!-- Templates -->
+		<script src="/scripts/templates/PhotographerProfile.js"></script>
+		<script src="/scripts/templates/PhotographerMedias.js"></script>
+		<script src="/scripts/templates/mediaLightbox.js"></script>
+		<script src="/scripts/templates/PhotographerLikesRate.js"></script>
+		<!-- Pages -->
+		<script src="/scripts/pages/photographer.js"></script>
+		<!-- Utils -->
+		<script src="/scripts/utils/dropdownFilter.js"></script>
+		<script src="/scripts/utils/likes.js"></script>
+		<script src="/scripts/utils/lightbox.js"></script>
+		<script src="/scripts/utils/contactModal.js"></script>
+		<script src="/scripts/utils/contactform.js"></script>
+	</body>
 </html>
