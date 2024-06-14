@@ -49,11 +49,13 @@ class PhotographerPage {
 						newGalleryData = this.sortByDate(galleryData);
 					}
 
-					// Empty current gallery
+					// Empty current gallery & lightbox
 					this.dropGallery();
+					this.dropLightbox();
 
-					// Generate new gallery
+					// Generate new gallery & lightbox content
 					this.setGallery(newGalleryData);
+					this.setLightbox(newGalleryData);
 				}
 			}
 		});
@@ -101,6 +103,16 @@ class PhotographerPage {
 			this.photographerGallery.appendChild(template.createMediaGallery());
 		});
 		likes();
+	}
+
+	//  Empty lightbox (used to display new sorted one)
+	dropLightbox() {
+		const lightboxDynamicContent = document.querySelector(
+			".lightbox-content-wrapper"
+		);
+		if (lightboxDynamicContent) {
+			this.lightboxContainer.removeChild(lightboxDynamicContent);
+		}
 	}
 
 	// Generate lightbox
