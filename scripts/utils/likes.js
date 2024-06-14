@@ -2,7 +2,7 @@ function likes() {
 	// Select all heart checkboxes
 	const heartChecks = document.querySelectorAll(".heart-checkbox");
 
-	// Add click event listener to each button
+	// Add click event listener to each checkbox
 	heartChecks.forEach((checkbox) => {
 		checkbox.addEventListener("change", function () {
 			// Find the corresponding like count element
