@@ -3,8 +3,8 @@ async function getPhotographers() {
 	if (!response.ok) {
 		console.log("Failed to fetch photographers data");
 	}
-	const photographers = await response.json();
-	return { photographers };
+	const photographersObj = await response.json();
+	return { photographersObj };
 }
 
 async function displayData(photographers) {
@@ -19,9 +19,9 @@ async function displayData(photographers) {
 
 async function init() {
 	// Fetch the photographers' data
-	const { photographers } = await getPhotographers();
+	const { photographersObj } = await getPhotographers();
 	// Access the photographers array from the photographers object
-	displayData(photographers.photographers);
+	displayData(photographersObj.photographers);
 }
 
 init();
