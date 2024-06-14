@@ -118,6 +118,7 @@
 
 .dropdown_content li {
 	position: relative;
+	top: -50px;
 	width: 190px;
 	list-style: none;
 }
